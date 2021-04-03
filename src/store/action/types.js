@@ -1,0 +1,2 @@
+export const FETCH_CRIMINAL = "FETCH_CRIMINAL";
+export const FILTER_CRIMINAL = "FILTER_CRIMINAL";
