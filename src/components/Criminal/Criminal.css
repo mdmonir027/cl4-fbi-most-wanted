@@ -4,3 +4,6 @@
 .MuiCardHeader-subheader {
   font-size: 13px !important;
 }
+.MuiCardMedia-root {
+  background-size: contain !important;
+}

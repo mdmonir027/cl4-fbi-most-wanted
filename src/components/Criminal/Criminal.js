@@ -29,33 +29,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Criminal = () => {
+const Criminal = ({ criminal }) => {
   const classes = useStyles();
+
+  const subString = (value, length = 50) => {
+    if (!value) return;
+    if (value.length > length) return `${value.substr(0, length)}...`;
+    return value;
+  };
 
   return (
     <Card className={classes.root}>
       <CardHeader
         className={classes.title}
-        title="Chorizo Paella"
+        title={subString(criminal.title, 18)}
         subheader="September 14, 2016"
       />
       <CardMedia
         className={classes.media}
-        image="https://images.pexels.com/photos/289323/pexels-photo-289323.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        title="Paella dish"
+        image={criminal.images[0].original}
+        title={classes.title}
       />
-      <CardContent>
+      <CardContent style={{ height: 40 }}>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {subString(criminal.description)}
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={classes.footer}>
-        <IconButton aria-label="add to favorites">
+        <IconButton
+          aria-label="add to favorites"
+          onClick={() => (window.location = criminal.files[0].url)}
+        >
           <GetAppIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        <IconButton
+          aria-label="share"
+          onClick={() =>
+            (window.location = `https://www.fbi.gov/${criminal.path}`)
+          }
+        >
           <ArrowForwardIcon />
         </IconButton>
       </CardActions>

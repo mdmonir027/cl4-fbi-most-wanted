@@ -22,8 +22,8 @@ const App = () => {
         <Divider />
         <Grid container spacing={4}>
           {criminals.map((criminal) => (
-            <Grid item md="3">
-              <Criminal />
+            <Grid item md={3} key={criminal.title}>
+              <Criminal criminal={criminal} />
             </Grid>
           ))}
         </Grid>

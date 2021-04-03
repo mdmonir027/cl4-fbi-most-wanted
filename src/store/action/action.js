@@ -1,16 +1,11 @@
-import axios from "axios";
 import { FETCH_CRIMINAL, FILTER_CRIMINAL } from "./types";
+import { data } from "./../../fakeData/data";
 
 export const fetchCriminal = () => (dispatch) => {
-  axios
-    .get("https://api.fbi.gov/wanted/v1/list")
-    .then((response) => {
-      dispatch({
-        type: FETCH_CRIMINAL,
-        payload: { fetchedCriminal: response.data },
-      });
-    })
-    .catch((e) => console.log(e?.response));
+  dispatch({
+    type: FETCH_CRIMINAL,
+    payload: { fetchedCriminal: data.items },
+  });
 };
 
 export const filterCriminal = (keyword) => (dispatch) => {
@@ -21,13 +16,8 @@ export const filterCriminal = (keyword) => (dispatch) => {
 };
 
 export const nextPage = (page) => (dispatch) => {
-  axios
-    .get(`https://api.fbi.gov/wanted/v1/list?page=${page}`)
-    .then((response) => {
-      dispatch({
-        type: FETCH_CRIMINAL,
-        payload: { fetchedCriminal: response.data },
-      });
-    })
-    .catch((e) => console.log(e?.response));
+  dispatch({
+    type: FETCH_CRIMINAL,
+    payload: { fetchedCriminal: data.items },
+  });
 };
