@@ -17,7 +17,7 @@ export const reducer = (state, action) => {
 
       const allCriminal = [...state.fetchedCriminal];
       const filteredCriminal = allCriminal.filter((criminal) =>
-        criminal.tiltel.toLowerCase().include(keyword.toLowerCase())
+        criminal.title.toLowerCase().includes(keyword.toLowerCase())
       );
       return { ...state, filteredCriminal };
     }

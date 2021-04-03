@@ -14,10 +14,3 @@ export const filterCriminal = (keyword) => (dispatch) => {
     payload: { keyword },
   });
 };
-
-export const nextPage = (page) => (dispatch) => {
-  dispatch({
-    type: FETCH_CRIMINAL,
-    payload: { fetchedCriminal: data.items },
-  });
-};
